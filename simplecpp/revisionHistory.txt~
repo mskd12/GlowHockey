@@ -1,0 +1,32 @@
+15/8/2012 Added code to abort with helpful message if graphics
+commands are used without calls to initCanvas or turtleSim.
+
+16/8/2012 sprites created inline get destroyed at the end of the
+block.  If this block = main program, then destructors would be called
+after closeCanvas.  This used to produce a segmentation fault.
+Modified closeCanvas so that it sets display = NULL, indicating that
+the canvas has been closed.  Modified removeSprite to first check if
+display is not NULL, and only if so repaint it.  Now only poly has a
+non trivial destructor: because it needs to remove the vertex array.
+Sprite has a destructor which only calls canvas::removeSprite, which
+in turn calls repaint only if canvas::display is not NULL.  For parts
+of composite objects, the destructor called on sprite will call
+removeSprite although it is not needed, but it does not do damage as
+it is written.  Also modified class Text so that it paints only when
+visible.  This was an obvious bug.
+
+21/8/2012 Fixed wait bug.  (int) p/q means ((int) p)/q, apparently.
+
+14/9/2012 Added Text(cx, cy, number) constructor.
+
+14/10/2012 Added event handling.  made functions of keypress,
+motionnotify. function charfromevent.  checkevent was already there.
+
+22/10/2012 Added alternate font loading to canvas.cpp.  Thanks to
+Kashyap and Shashank.
+
+29/10/2012 Added mouse release event processing to canvas.cpp.  Also
+made radius in circle protected, it was private earlier.
+
+3/11/2012 Added miscellaneous accessors to graphics, e.g. getRadius,
+and made some privates into protected.

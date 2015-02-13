@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "g++ "  $@ -I/usr/include/X11 -I/users/fac/ranade/simplecpp/include -L/usr/X11R6/lib -lX11 -L/users/fac/ranade/simplecpp/lib -lsprite
+g++ $@ -I/usr/include/X11 -I/users/fac/ranade/simplecpp/include -L/usr/X11R6/lib -lX11 -L/users/fac/ranade/simplecpp/lib -lsprite

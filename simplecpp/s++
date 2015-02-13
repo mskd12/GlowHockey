@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "g++ "  $@  -Wall /home/mskd96/Desktop/Backup/OldProjects/GlowHockey/simplecpp/lib/libsprite.a -I/home/mskd96/Desktop/Backup/OldProjects/GlowHockey/simplecpp/include -I/usr/include/X11 -L/usr/lib/i386-linux-gnu -L/usr/X11R6/lib -lX11
+g++ $@ -Wall /home/mskd96/Desktop/Backup/OldProjects/GlowHockey/simplecpp/lib/libsprite.a -I/home/mskd96/Desktop/Backup/OldProjects/GlowHockey/simplecpp/include -I/usr/include/X11 -L/usr/lib/i386-linux-gnu -L/usr/X11R6/lib -lX11
